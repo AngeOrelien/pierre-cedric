@@ -8,7 +8,9 @@ const User = sequelize.define('User', {
     email: {type: DataTypes.STRING(200), allowNull: false, unique: true, validate: {isEmail: true}},
     password: {type: DataTypes.STRING(255), allowNull: false},
     phone: {type: DataTypes.STRING(20), allowNull: true},
-    role: {type: DataTypes.ENUM('customer', 'admin'), allowNull:false},
+    role: {type: DataTypes.ENUM('customer', 'admin'), allowNull:false, defaultValue: 'customer'},
     isActive: {type: DataTypes.BOOLEAN, defaultValue: true},
     lastLogin: {type: DataTypes.DATE, allowNull: true},
 }, {tableName: 'users'});
+
+module.exports = User;
