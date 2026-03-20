@@ -1,0 +1,93 @@
+le backend est OK.
+je veux que tu me cree toutes les vues, en ressemblance a celui de https://phonescanada.com/
+et indiques moi ou et comment mettre mon logo, les images et les autres assets, stylyser mon appli pour qu'elle soit bright et dark mode (bright en principal), les differents components, utilisant les couleurs de mon logo pour stylyser, enfaite toutes les vues, les components, les forms, les layouts, les navbar et footer, les sidemenus, qu'elle soit responsive je veux une meilleure presentation de mon appliation de vente d'accessoires et outils informatiques. n'hesite pas a mettre les images en ligne et m'indiquer comment les remplacer avec mes propres images.
+et aussi montre moi comment definir et choisir la police principale (celle a utiliser dans ma hero section) et les secondaires. parce que je compte les changer plustard. avec des fichiers .tff/.ttf telecharges. que je dois ajouter dans fonts/ de mon projet.
+
+et actuellement je n'utilise plus postcss
+j'ai defini vite.config comme ceci : 
+
+```javascript
+import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite'
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [
+    react(),
+    tailwindcss()
+  ],
+  server: {
+    port: 5173,
+    proxy: {
+      '/api'    : { target: 'http://localhost:5000', changeOrigin: true },
+      '/uploads': { target: 'http://localhost:5000', changeOrigin: true },
+    },
+  },
+});
+
+```
+
+
+et j'utilise src/style/index.css
+
+```css
+@import "tailwindcss";
+
+@theme {
+  /* --- COULEURS --- */
+  --color-primary-50: #EFF6FF;
+  --color-primary-100: #DBEAFE;
+  --color-primary-200: #BFDBFE;
+  --color-primary-400: #60A5FA;
+  --color-primary-500: #3B82F6;
+  --color-primary-600: #2563EB;
+  --color-primary-700: #1D4ED8;
+  --color-primary-800: #1E40AF;
+  --color-primary-900: #1E3A5F;
+
+  --color-accent-400: #FBBF24;
+  --color-accent-500: #F59E0B;
+  --color-accent-600: #D97706;
+
+  --color-success-100: #DCFCE7;
+  --color-success-500: #22C55E;
+  --color-success-600: #16A34A;
+
+  --color-danger-100: #FEE2E2;
+  --color-danger-500: #EF4444;
+  --color-danger-600: #DC2626;
+
+  --color-warning-100: #FEF3C7;
+  --color-warning-500: #F59E0B;
+  --color-warning-600: #D97706;
+
+  /* --- POLICES --- */
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-display: "Syne", sans-serif;
+
+  /* --- ANIMATIONS & KEYFRAMES --- */
+  --animate-fade-in: fadeIn 0.25s ease-out;
+  --animate-slide-up: slideUp 0.3s ease-out;
+  --animate-slide-in-r: slideInRight 0.3s ease-out;
+  --animate-spin-slow: spin 2s linear infinite;
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(100%); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+}
+
+```
+
+donc faisons les vues et les dashboard.
+
+
+a l\'image de phonecanada
