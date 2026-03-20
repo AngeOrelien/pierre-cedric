@@ -1,0 +1,14 @@
+const r = require('express').Router();
+const c = require('../controllers/adminController');
+const { protect } = require('../middlewares/auth.middleware');
+const { isAdmin } = require('../middlewares/admin.middleware');
+r.use(protect, isAdmin);
+r.get('/stats',              c.getStats);
+r.get('/orders',             c.getAllOrders);
+r.put('/orders/:id',         c.updateOrderStatus);
+r.get('/customers',          c.getCustomers);
+r.get('/inventory',          c.getInventory);
+r.post('/stock/:productId',  c.adjustStock);
+r.get('/reviews',            c.getReviews);
+r.put('/reviews/:id',        c.approveReview);
+module.exports = r;

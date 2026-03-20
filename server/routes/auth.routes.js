@@ -1,10 +1,8 @@
-const express = require('express');
-const router  = express.Router();
-
-// Importer les fonctions du contrôleur
-const { register } = require('../controllers/authController');
-
-// Route d'inscription
-router.post('/register', register);
-
-module.exports = router;
+const r = require('express').Router();
+const c = require('../controllers/authController');
+const { protect } = require('../middlewares/auth.middleware');
+r.post('/register', c.register);
+r.post('/login',    c.login);
+r.get('/me',        protect, c.getMe);
+r.put('/password',  protect, c.updatePassword);
+module.exports = r;

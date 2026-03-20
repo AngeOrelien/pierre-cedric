@@ -1,0 +1,15 @@
+const r = require('express').Router();
+const c = require('../controllers/productController');
+const rev = require('../controllers/reviewController');
+const { protect } = require('../middlewares/auth.middleware');
+const { isAdmin } = require('../middlewares/admin.middleware');
+const upload = require('../middlewares/upload.middleware');
+r.get('/',    c.getProducts);
+r.get('/:id', c.getProduct);
+r.get('/:id/reviews', rev.getProductReviews);
+r.post('/',   protect, isAdmin, c.createProduct);
+r.put('/:id', protect, isAdmin, c.updateProduct);
+r.delete('/:id', protect, isAdmin, c.deleteProduct);
+r.post('/:id/images', protect, isAdmin, upload.array('images',8), c.uploadImages);
+r.delete('/:productId/images/:imageId', protect, isAdmin, c.deleteImage);
+module.exports = r;

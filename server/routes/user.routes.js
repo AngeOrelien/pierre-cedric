@@ -1,0 +1,10 @@
+const r = require('express').Router();
+const c = require('../controllers/userController');
+const { protect } = require('../middlewares/auth.middleware');
+const upload = require('../middlewares/upload.middleware');
+r.put('/profile',         protect, upload.single('avatar'), c.updateProfile);
+r.get('/addresses',       protect, c.getAddresses);
+r.post('/addresses',      protect, c.createAddress);
+r.put('/addresses/:id',   protect, c.updateAddress);
+r.delete('/addresses/:id',protect, c.deleteAddress);
+module.exports = r;
