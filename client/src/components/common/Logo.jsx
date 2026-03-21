@@ -15,6 +15,9 @@
  *   - Accent    : bg-[#F59E0B] → votre couleur secondaire
  *   - Texte     : text-[#1E3A5F] / text-white
  */
+
+import logo from '../../assets/images/logo/logo-full.png';
+
 export default function Logo({ size = 'md', white = false, className = '' }) {
   const s = {
     sm: { wrap:'h-8',   icon:'w-5 h-5', name:'text-sm',  sub:'text-[10px]' },
@@ -28,21 +31,12 @@ export default function Logo({ size = 'md', white = false, className = '' }) {
   return (
     <div className={`flex items-center gap-2.5 select-none ${className}`}>
       {/* Icône */}
-      <div className={`${s.wrap} aspect-square flex-shrink-0 rounded-xl bg-[#2563EB] flex items-center justify-center shadow-sm`}>
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className={s.icon}>
-          {/* Écran moniteur */}
-          <rect x="3" y="4" width="26" height="17" rx="2.5" stroke="white" strokeWidth="1.8" fill="none"/>
-          <rect x="3" y="4" width="26" height="17" rx="2.5" fill="white" fillOpacity="0.08"/>
-          {/* Pied */}
-          <path d="M11 21v2.5c0 .8.7 1.5 1.5 1.5h7c.8 0 1.5-.7 1.5-1.5V21" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
-          {/* Base */}
-          <path d="M8.5 28h15" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
-          {/* Lignes code */}
-          <path d="M8 10h5M8 13.5h9" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeOpacity=".7"/>
-          {/* Point accent ambre */}
-          <circle cx="22.5" cy="11.5" r="3.5" fill="#F59E0B"/>
-          <path d="M21 11.5l1.2 1.2 2-2" stroke="white" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
+      <div className={`${s.wrap} aspect-square flex-shrink-0 flex items-center justify-center`}>
+        <img 
+          src={logo}
+          alt="Logo"
+          className="h-full w-full object-contain"
+        />
       </div>
 
       {/* Texte */}
