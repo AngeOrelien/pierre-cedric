@@ -371,7 +371,7 @@ export default function Home() {
       </section>
 
       {/* ══ CTA INSCRIPTION ═════════════════════════════════════════════ */}
-      <section className="bg-gradient-to-br from-[#1E3A5F] to-[#2563EB] py-16">
+      <section className="bg-gradient-to-br from-primary-900 to-primary-600 py-16">
         <div className="pc-container text-center">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
             Rejoignez plus de 5 000 clients satisfaits
